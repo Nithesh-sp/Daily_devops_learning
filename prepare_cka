@@ -9,3 +9,4 @@ Pod
 > kubectl edit <Resource> <Resource_name>
 > kubectl explain <Resource>
 > kubectl scale --replicas=<no> -f <yaml_file>
+> kubectl create deployment <deployment_name> --image=<image_name> --replicas=<port_no>
