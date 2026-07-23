@@ -1,0 +1,11 @@
+Pod 
+
+> kubectl get pods 
+> kubectl apply -f <yaml_file>
+> kubectl create -f <yaml_file>
+> kubectl run <Pod_name> --image=nginx --port=80 --env="trir=Prod" --labels="ENV=Prod"
+> kubectl get pod <Pod_name> -o jsonpath='{.spec.containers[0].image}' 
+> kubectl get pod -o wide
+> kubectl edit <Resource> <Resource_name>
+> kubectl explain <Resource>
+> kubectl scale --replicas=<no> -f <yaml_file>
