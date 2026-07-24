@@ -1,0 +1,27 @@
+Pod 
+
+> kubectl get pods 
+> kubectl apply -f <yaml_file>
+> kubectl create -f <yaml_file>
+> kubectl run <Pod_name> --image=nginx --port=80 --env="trir=Prod" --labels="ENV=Prod"
+> kubectl get pod <Pod_name> -o jsonpath='{.spec.containers[0].image}' 
+> kubectl get pod -o wide
+> kubectl edit <Resource> <Resource_name>
+> kubectl explain <Resource>
+> kubectl scale --replicas=<no> -f <yaml_file>
+> kubectl create deployment <deployment_name> --image=<image_name> --replicas=<port_no>
+
+Day 2 
+Service and namespace
+
+> <service_name>.<namespace>.svc.cluster.local
+> Type 
+  ClusterIP
+  NodePort
+  LoadBalancer
+
+> kubectl config set-context $(kubectl config current-context) --namespace=<namespace_name>
+> kubectl config set-context --current --namespace=<namespace_name>
+> kubectl config view --minify
+> kubectl config get-contexts
+> kubectl get pods --all-namespaces 
