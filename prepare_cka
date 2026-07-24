@@ -10,3 +10,18 @@ Pod
 > kubectl explain <Resource>
 > kubectl scale --replicas=<no> -f <yaml_file>
 > kubectl create deployment <deployment_name> --image=<image_name> --replicas=<port_no>
+
+Day 2 
+Service and namespace
+
+> <service_name>.<namespace>.svc.cluster.local
+> Type 
+  ClusterIP
+  NodePort
+  LoadBalancer
+
+> kubectl config set-context $(kubectl config current-context) --namespace=<namespace_name>
+> kubectl config set-context --current --namespace=<namespace_name>
+> kubectl config view --minify
+> kubectl config get-contexts
+> kubectl get pods --all-namespaces 
