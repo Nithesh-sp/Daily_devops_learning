@@ -10,6 +10,7 @@ Pod
 > kubectl explain <Resource>
 > kubectl scale --replicas=<no> -f <yaml_file>
 > kubectl create deployment <deployment_name> --image=<image_name> --replicas=<port_no>
+> kubectl get all
 
 Day 2 
 Service and namespace
