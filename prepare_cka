@@ -26,3 +26,29 @@ Service and namespace
 > kubectl config view --minify
 > kubectl config get-contexts
 > kubectl get pods --all-namespaces 
+
+
+Day 3 
+Imperative and declarative 
+
+> kubectl run --name=http --image=nginx --expose=True          : Will create service along with is with same name httpd
+
+
+> Scheduler
+> Pod attach with node using nodeName 
+> Manul sceduling 
+  > Adding nodeName while creating the pod 
+  > Create binding object and request the pod's binding api 
+    Curl POST request 
+> kubectl get pods --watch 
+> kubectl replace --force -f name.yaml                         : Delete the resource and create according to new yaml
+> kubectl get pods --selector app=V1
+> kubectl get pods --no-headers
+
+Traint and Toleration
+
+> kubectl traint node node_name key=value:Effect 
+  effect
+    NoSchedule 
+    PreferNoSchedule 
+    NoExecute
