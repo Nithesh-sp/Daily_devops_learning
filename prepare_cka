@@ -55,7 +55,30 @@ Traint and Toleration
 
 Day 4 
 
+Static pods 
+> Creating and maintaing pods without control plane , using designated folder to store the defination file. 
+  /var/lib/kubelet/config.yaml 
+    staticPodPath: /etc/kubernetes/manifests/
+  /etc/kubernetes/kubelet.config
+    podManifestPath: <path>
+> if it is created in cluster exists with controlplane , controlplane will know that pod is exists ,but can't delete or modify.
+> helps to implement controlplane components itself.
+
+PriorityClass
+
+> -2 to 1 billion for applications 
+  1 to 2  billion for control plane components
+
+Multiple schedulers 
+
+Profile 
+
+Admission controller 
+   validating  AC 
+   mutating AC 
+
 > kubectl get pods -o custom-colums="NAME:.metadata.name,PRIORITY:.spec.priorityClassName"
 > kubectl create configmap <name> --from-file <file> -n <ns>
 > kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep enable-admission-plugins
 > kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file
+> kubectl get priorityclass
