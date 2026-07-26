@@ -52,3 +52,10 @@ Traint and Toleration
     NoSchedule 
     PreferNoSchedule 
     NoExecute
+
+Day 4 
+
+> kubectl get pods -o custom-colums="NAME:.metadata.name,PRIORITY:.spec.priorityClassName"
+> kubectl create configmap <name> --from-file <file> -n <ns>
+> kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep enable-admission-plugins
+> kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file
