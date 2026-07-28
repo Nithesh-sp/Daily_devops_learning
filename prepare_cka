@@ -109,3 +109,19 @@ kubectl rollout history deployment/name
 kubectl rollout undo deployment/name
 
 Commands and Arguments 
+
+In dockerfile
+
+CMD is argument 
+ENTERYPOINT is command 
+
+In Pod defination 
+
+args: ["500"]
+command: ["sleep"]
+
+kubectl run pod_name --image image_name --command -- <cmd> <arg1> ...
+
+Configuring Environment variables 
+
+
