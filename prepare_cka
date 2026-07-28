@@ -82,3 +82,30 @@ Admission controller
 > kubectl exec kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep enable-admission-plugins
 > kubectl create secret tls NAME --cert=path/to/cert/file --key=path/to/key/file
 > kubectl get priorityclass
+
+Day 5 
+
+Logging and Monitoring 
+
+> Using metrices-server 
+  > Downloading options 
+     > addon enable metrics-server , if using minikube 
+     > Git clone , kubectl create -f 
+
+> To use 
+  > kubectl top pod 
+  > kubectl top node        , to get Memory and CPU usage of nodes & pods. 
+
+kubectl logs -f <pod_name> <container_name>  , To get the logs , mention container name if multiple containers present.
+
+Day 6 
+
+Application lifecycle management 
+
+rolling update and recreate
+
+kubectl rollout status deployment/name 
+kubectl rollout history deployment/name
+kubectl rollout undo deployment/name
+
+Commands and Arguments 
