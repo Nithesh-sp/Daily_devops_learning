@@ -124,4 +124,29 @@ kubectl run pod_name --image image_name --command -- <cmd> <arg1> ...
 
 Configuring Environment variables 
 
+Ways of defining environment variables 
 
+1. env: 
+     - key: <name>
+       value: <value>
+
+2. configMap 
+   imperative way 
+     kubectl create configmap <config_name> --from-literal=APP=MY_APP --from-literal=COLOR=ORANGE
+     kubectl create configmap <config_name> --from-file=<file_path>
+
+   declarative way 
+     Using defination file
+
+   Injecting ways
+a.  envFrom 
+b.  env: 
+    key: key_name
+    valueFrom: 
+     configMapRef:
+        name: <config_name>
+        key: <key_name>
+c.  volumes: 
+     name: config_vols
+     configMap: 
+       name: <config_name>     , stored as key = file_name  , value = content of file in mountPath defination
