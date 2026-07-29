@@ -150,3 +150,15 @@ c.  volumes:
      name: config_vols
      configMap: 
        name: <config_name>     , stored as key = file_name  , value = content of file in mountPath defination
+
+Day 7 
+
+Secret 
+
+> Same a configmap 
+
+> --from-env-file (Multiple Keys) 
+  --from-file (One Key per File)
+
+> If using file or yaml to create the secret then the value should store in base64 encoded formate.
+> 
