@@ -1,5 +1,6 @@
 Pod 
 
+Day 1
 > kubectl get pods 
 > kubectl apply -f <yaml_file>
 > kubectl create -f <yaml_file>
