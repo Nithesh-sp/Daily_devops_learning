@@ -162,4 +162,32 @@ Secret
   --from-file (One Key per File)
 
 > If using file or yaml to create the secret then the value should store in base64 encoded formate.
-> 
+> Encryption at rest is possible in k8s , create the yaml and add macros --encryptionInApiServer
+
+
+Day 8
+
+Multi containers 
+
+> Application containers , which may co-related 
+   > Not in order 
+> init containers 
+   > In order format , One after another execution. If one fails restarts with first cpontainer again.
+   > startUp containers , once done finish.
+> sidecar containers ( same as inti containers + restartPolicy: Always )
+   > Start before application container , terminate after main containers.
+   > Logging and monitoring containers.
+
+
+> kuberctl logs <pod_name> -c <container_name>
+
+Day 9 
+
+Self healing applications 
+
+> HPA ( Horizontal pod autoscaling )
+> VPA ( Vertical pod autoscaling )
+
+
+
+
