@@ -186,8 +186,31 @@ Day 9
 Self healing applications 
 
 > HPA ( Horizontal pod autoscaling )
+  > Increasing the no of pods 
+  > Good for stateless pod 
+
 > VPA ( Vertical pod autoscaling )
+  > Increasing the resource of individual pod. 
+  > down time issue , because pod need to restart 
+  > Good for statful pods.
+
+> Auto scaling get the metrices from matrices server ( required ) 
+
+Cluster maintaince
+
+> If a node goes down replicaSet pod will spwan in an other nodes, But individual pod will lost forever.
+> After 5 mins of node down , control node consider node as dead. 
 
 
+> Kubernetes upgrade
+  > Workable version of each components.
+    >  Kube API                         X version 
+    > Kube aScheduler , controller      X-1 Version , Never X+1 Version
+    > Kubelet , Kubeproxy               X-2 Version  , Never X+1 Version
+    > Kubectl                           Any version 
 
+> Steps to upgrade 
 
+> First upgrage control node 
+> Update this , to apt get the current version repository. 
+  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
