@@ -211,6 +211,42 @@ Cluster maintaince
 
 > Steps to upgrade 
 
-> First upgrage control node 
+> First upgrage Control Node 
 > Update this , to apt get the current version repository. 
-  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  a. echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  b. curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+> sudo apt-get update
+
+> To check the available kubeadm versions
+  a. sudo apt update
+  b. sudo apt-cache madison kubeadm
+
+> Upgrade kubeadm 
+  a. sudo apt-mark unhold kubeadm && \
+  b. sudo apt-get update && sudo apt-get install -y kubeadm='1.36.x-*' && \
+  c. sudo apt-mark hold kubeadm
+  d. kubeadm version
+
+> Check the kubeadm plan 
+  a. kubeadm upgrade plan 
+
+> Apply the version
+  a. sudo kubeadm upgrade apply v1.36.x
+
+> Now Worker node 
+ > Evict the pods to avaiable pod with grace termination.
+    a. kubectl drain <node-to-drain> --ignore-daemonsets
+
+ > Repeat step 1 and 3 and download contemprory kubectl and kubelet versions 
+    a. sudo apt-mark unhold kubelet kubectl && \
+       sudo apt-get update && sudo apt-get install -y kubelet='1.36.x-*' kubectl='1.36.x-*' && \
+       sudo apt-mark hold kubelet kubectl
+
+ > Restart the kubelet service. 
+    a. sudo systemctl daemon-reload
+       sudo systemctl restart kubelet
+
+ > Make node avaiable for scheduling , which marked as Unshecdulable in drain step.
+    a. kubectl uncordon <node-to-uncordon>
+
+Note: Control node components not required restart as they are static pod ,But kubelet is service.
